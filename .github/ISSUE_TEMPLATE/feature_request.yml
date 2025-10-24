@@ -1,0 +1,79 @@
+name: ✨ 기능 요청
+description: 새로운 기능이나 개선사항을 제안해주세요.
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        기능 제안을 해주셔서 감사합니다! 여러분의 아이디어가 프로젝트를 더 좋게 만듭니다.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 해결하고자 하는 문제
+      description: 현재 겪고 있는 문제나 불편한 점이 무엇인가요?
+      placeholder: 예) ~을 할 때 항상 불편함을 느낍니다...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 제안하는 솔루션
+      description: 어떤 기능이나 변경사항을 원하시나요?
+      placeholder: 예) ~기능을 추가하면 좋을 것 같습니다...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 대안
+      description: 고려해본 다른 방법이 있나요?
+      placeholder: 예) ~하는 방법도 생각해봤지만...
+    validations:
+      required: false
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: 사용 사례
+      description: 이 기능을 어떻게 사용하실 건가요?
+      placeholder: |
+        예)
+        1. 사용자가 ~ 페이지에 접속
+        2. ~ 버튼을 클릭하면
+        3. ~ 기능이 실행됨
+    validations:
+      required: false
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: 기대 효과
+      description: 이 기능이 추가되면 어떤 장점이 있을까요?
+      placeholder: 예) 사용자 경험이 개선되고, 작업 시간이 단축됩니다.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 우선순위
+      description: 이 기능이 얼마나 중요하다고 생각하시나요?
+      options:
+        - 낮음 (있으면 좋음)
+        - 보통 (필요함)
+        - 높음 (매우 필요함)
+        - 긴급 (당장 필요함)
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 추가 정보
+      description: 다른 참고할만한 정보나 자료가 있다면 작성해주세요. (관련 링크, 스크린샷, 레퍼런스 등)
+    validations:
+      required: false

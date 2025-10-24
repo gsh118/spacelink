@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 질문하기
+    url: https://github.com/gsh118/spacelink/discussions
+    about: 일반적인 질문이나 토론은 Discussions를 이용해주세요.
+  - name: 📖 문서
+    url: https://github.com/gsh118/spacelink#readme
+    about: README 문서를 먼저 확인해보세요.

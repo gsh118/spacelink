@@ -1,0 +1,87 @@
+name: 🐛 버그 리포트
+description: 버그나 문제를 발견하셨나요? 이 템플릿을 사용해서 알려주세요.
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        버그 리포트를 작성해주셔서 감사합니다! 가능한 자세히 작성해주시면 빠르게 해결할 수 있습니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 버그 설명
+      description: 어떤 버그가 발생했는지 명확하고 간결하게 설명해주세요.
+      placeholder: 예) 로그인 버튼을 클릭하면 화면이 멈춥니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 방법
+      description: 버그를 재현하기 위한 단계를 작성해주세요.
+      placeholder: |
+        1. '...' 페이지로 이동
+        2. '...' 버튼 클릭
+        3. '...' 입력
+        4. 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상 동작
+      description: 어떤 동작을 예상했나요?
+      placeholder: 예) 로그인이 정상적으로 되어야 합니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 동작
+      description: 실제로 어떤 일이 발생했나요?
+      placeholder: 예) 화면이 멈추고 콘솔에 에러가 출력됩니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 환경 정보
+      description: 버그가 발생한 환경에 대해 알려주세요.
+      placeholder: |
+        - OS: [예) Windows 11, macOS 14.0, Ubuntu 22.04]
+        - 브라우저: [예) Chrome 120, Safari 17, Firefox 121]
+        - 버전: [예) 1.0.0]
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 로그/에러 메시지
+      description: 관련된 로그나 에러 메시지가 있다면 붙여넣어주세요.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 스크린샷
+      description: 버그를 보여주는 스크린샷이 있다면 첨부해주세요.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 추가 정보
+      description: 다른 참고할만한 정보가 있다면 작성해주세요.
+    validations:
+      required: false
