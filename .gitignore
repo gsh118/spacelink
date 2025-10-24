@@ -23,4 +23,4 @@ logs/
 *.bak
 
 # Project documentation (private)
-spacelink_prd.txt
+docs/
