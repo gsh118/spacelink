@@ -3,6 +3,7 @@
 -- Drop tables if exist (for clean initialization)
 DROP TABLE IF EXISTS booking;
 DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS place;
 DROP TABLE IF EXISTS users;
 
 -- User Table
@@ -16,17 +17,29 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Place Table
+CREATE TABLE place (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    latitude DOUBLE,
+    longitude DOUBLE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Room Table
 CREATE TABLE room (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    place_id BIGINT NOT NULL,
     name VARCHAR(100) NOT NULL,
-    location VARCHAR(255) NOT NULL,
     capacity INT NOT NULL,
     price_per_hour DECIMAL(10, 2) NOT NULL,
     description TEXT,
     amenities VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (place_id) REFERENCES place(id) ON DELETE CASCADE
 );
 
 -- Booking Table
@@ -46,6 +59,7 @@ CREATE TABLE booking (
 
 -- Indexes for performance
 CREATE INDEX idx_user_email ON users(email);
+CREATE INDEX idx_room_place_id ON room(place_id);
 CREATE INDEX idx_booking_user_id ON booking(user_id);
 CREATE INDEX idx_booking_room_id ON booking(room_id);
 CREATE INDEX idx_booking_time ON booking(start_time, end_time);

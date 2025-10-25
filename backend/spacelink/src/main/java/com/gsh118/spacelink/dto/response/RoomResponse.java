@@ -15,8 +15,9 @@ import java.time.LocalDateTime;
 @Builder
 public class RoomResponse {
     private Long id;
+    private Long placeId;
+    private String placeName;
     private String name;
-    private String location;
     private Integer capacity;
     private BigDecimal pricePerHour;
     private String description;
@@ -27,8 +28,9 @@ public class RoomResponse {
     public static RoomResponse from(Room room) {
         return RoomResponse.builder()
             .id(room.getId())
+            .placeId(room.getPlace().getId())
+            .placeName(room.getPlace().getName())
             .name(room.getName())
-            .location(room.getLocation())
             .capacity(room.getCapacity())
             .pricePerHour(room.getPricePerHour())
             .description(room.getDescription())

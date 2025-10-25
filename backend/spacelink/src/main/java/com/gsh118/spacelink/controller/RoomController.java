@@ -20,9 +20,9 @@ public class RoomController {
 
     @GetMapping
     public ResponseEntity<List<RoomResponse>> getAllRooms(
-            @RequestParam(required = false) String location) {
-        if (location != null && !location.isEmpty()) {
-            return ResponseEntity.ok(roomService.getRoomsByLocation(location));
+            @RequestParam(required = false) Long placeId) {
+        if (placeId != null) {
+            return ResponseEntity.ok(roomService.getRoomsByPlaceId(placeId));
         }
         return ResponseEntity.ok(roomService.getAllRooms());
     }
