@@ -20,11 +20,12 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "place_id", nullable = false)
+    private Place place;
+
     @Column(nullable = false, length = 100)
     private String name;
-
-    @Column(nullable = false)
-    private String location;
 
     @Column(nullable = false)
     private Integer capacity;
@@ -50,9 +51,9 @@ public class Room {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Room(String name, String location, Integer capacity, BigDecimal pricePerHour, String description, String amenities) {
+    public Room(Place place, String name, Integer capacity, BigDecimal pricePerHour, String description, String amenities) {
+        this.place = place;
         this.name = name;
-        this.location = location;
         this.capacity = capacity;
         this.pricePerHour = pricePerHour;
         this.description = description;

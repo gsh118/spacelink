@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class RoomCreateRequest {
 
+    @NotNull(message = "Place ID is required")
+    private Long placeId;
+
     @NotBlank(message = "Name is required")
     private String name;
-
-    @NotBlank(message = "Location is required")
-    private String location;
 
     @NotNull(message = "Capacity is required")
     @Positive(message = "Capacity must be positive")
