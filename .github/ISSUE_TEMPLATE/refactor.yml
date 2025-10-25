@@ -1,0 +1,56 @@
+name: 🔨 리팩토링
+description: 기능 변경 없이 코드 구조를 개선합니다.
+title: "[REFACTOR] "
+labels: ["refactor"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        리팩토링 제안을 해주셔서 감사합니다!
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 리팩토링 이유
+      description: 왜 이 코드를 개선해야 하나요?
+      placeholder: 예) 현재 코드가 중복되어 있고, 유지보수가 어렵습니다...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-code
+    attributes:
+      label: 현재 코드 (선택사항)
+      description: 개선하려는 현재 코드 또는 파일 위치
+      placeholder: |
+        예)
+        파일: src/main/java/com/example/Service.java
+        현재 구조가 복잡하고...
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 제안하는 개선 방안
+      description: 어떻게 개선할 계획인가요?
+      placeholder: 예) 중복 코드를 공통 메서드로 추출하고...
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 영향 범위
+      description: 이 리팩토링이 영향을 미치는 범위는?
+      placeholder: 예) Service 레이어만 영향을 받으며, API는 변경 없음
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 추가 정보
+      description: 다른 참고할만한 정보가 있다면 작성해주세요.
+    validations:
+      required: false

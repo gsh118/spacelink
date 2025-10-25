@@ -11,6 +11,22 @@
   color: a2eeef
   description: 새로운 기능이나 개선사항
 
+- name: refactor
+  color: fbca04
+  description: 코드 리팩토링
+
+- name: chore
+  color: fef2c0
+  description: 빌드, 설정 등 기타 작업
+
+- name: test
+  color: 1d76db
+  description: 테스트 추가 또는 수정
+
+- name: style
+  color: c5def5
+  description: 코드 포맷팅, 세미콜론 등
+
 - name: documentation
   color: 0075ca
   description: 문서 개선
