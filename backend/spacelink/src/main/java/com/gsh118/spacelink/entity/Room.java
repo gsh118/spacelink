@@ -1,10 +1,7 @@
 package com.gsh118.spacelink.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,10 +12,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "room")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Room {
 
     @Id
@@ -44,7 +39,6 @@ public class Room {
     private String amenities;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    @Builder.Default
     private List<Booking> bookings = new ArrayList<>();
 
     @CreationTimestamp
@@ -54,4 +48,14 @@ public class Room {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Builder
+    public Room(String name, String location, Integer capacity, BigDecimal pricePerHour, String description, String amenities) {
+        this.name = name;
+        this.location = location;
+        this.capacity = capacity;
+        this.pricePerHour = pricePerHour;
+        this.description = description;
+        this.amenities = amenities;
+    }
 }
