@@ -1,0 +1,55 @@
+name: 🔧 기타 작업
+description: 빌드, 설정, 의존성 등 기타 작업을 진행합니다.
+title: "[CHORE] "
+labels: ["chore"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        프로젝트 개선 작업을 제안해주셔서 감사합니다!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 작업 내용
+      description: 어떤 작업을 진행하나요?
+      placeholder: |
+        예)
+        - 의존성 버전 업데이트
+        - CI/CD 설정 개선
+        - 빌드 스크립트 수정
+        - 문서 업데이트
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 작업 이유
+      description: 왜 이 작업이 필요한가요?
+      placeholder: 예) 보안 패치가 포함된 새 버전이 출시되었습니다...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 작업 카테고리
+      description: 어떤 종류의 작업인가요?
+      options:
+        - 의존성 업데이트
+        - 빌드/배포 설정
+        - CI/CD 개선
+        - 문서 작업
+        - 설정 파일 수정
+        - 기타
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 추가 정보
+      description: 다른 참고할만한 정보가 있다면 작성해주세요.
+    validations:
+      required: false
