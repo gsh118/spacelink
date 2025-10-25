@@ -1,10 +1,7 @@
 package com.gsh118.spacelink.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,10 +10,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "booking")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Booking {
 
     @Id
@@ -50,4 +45,19 @@ public class Booking {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Builder
+    public Booking(User user, Room room, LocalDateTime startTime, LocalDateTime endTime, String status, BigDecimal totalPrice) {
+        this.user = user;
+        this.room = room;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+        this.totalPrice = totalPrice;
+    }
+
+    // Business methods
+    public void updateStatus(String status) {
+        this.status = status;
+    }
 }

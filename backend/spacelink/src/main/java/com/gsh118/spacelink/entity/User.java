@@ -1,10 +1,7 @@
 package com.gsh118.spacelink.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -14,10 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class User {
 
     @Id
@@ -37,7 +32,6 @@ public class User {
     private String role = "ROLE_USER";
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @Builder.Default
     private List<Booking> bookings = new ArrayList<>();
 
     @CreationTimestamp
@@ -47,4 +41,12 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Builder
+    public User(String email, String password, String name, String role) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.role = role;
+    }
 }

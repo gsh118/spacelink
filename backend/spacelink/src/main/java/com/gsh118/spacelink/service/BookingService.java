@@ -92,7 +92,7 @@ public class BookingService {
         Booking booking = bookingRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));
 
-        booking.setStatus("CANCELLED");
+        booking.updateStatus("CANCELLED");
         bookingRepository.save(booking);
     }
 
